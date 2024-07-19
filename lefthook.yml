@@ -1,0 +1,29 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+
+pre-push:
+  commands:
+    packages-audit:
+      tags: frontend security
+      run: yarn audit
+
+commit-msg:
+  commands:
+    lint-commit-msg:
+      run: npx commitlint --edit
+
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npx biome format --write --no-errors-on-unmatched {staged_files}
+    lint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npx biome lint --write --no-errors-on-unmatched {staged_files}
+    test:unit:
+      glob: "*.{spec,test}.{[tj]s,[tj]sx}"
+      run: >
+        npx vitest {staged_files} --run --environment jsdom
