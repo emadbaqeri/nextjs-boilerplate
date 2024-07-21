@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { SignJWT } from "jose";
 import { createPrivateKey } from "crypto";
+import { SignJWT } from "jose";
 
 if (process.argv.includes("--help") || process.argv.includes("-h")) {
   console.log(`

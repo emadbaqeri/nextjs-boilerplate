@@ -1,10 +1,10 @@
-import z from "zod";
 import { createEnv } from "@t3-oss/env-nextjs";
+import z from "zod";
 
 export const env = createEnv({
   server: {
     API_URI: z.string().url(),
-    ANALYZE: z.boolean(),
+    ANALYZE: z.string(),
     GITHUB_ID: z.string(),
     GITHUB_SECRET: z.string(),
     GOOGLE_ID: z.string(),

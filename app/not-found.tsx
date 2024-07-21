@@ -2,6 +2,8 @@
  *  if not match found while redirecting
  */
 
-export default function NotFoundPage() {
-  return <div>404 Not Found</div>;
+import { NotFoundPage } from "@/views";
+
+export default function NotFound() {
+  return <NotFoundPage />;
 }

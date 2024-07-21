@@ -1,7 +1,7 @@
-import qs from "qs";
-import axios from "axios";
 import { env } from "@/config";
+import axios from "axios";
 import type { AxiosError, AxiosRequestConfig } from "axios";
+import qs from "qs";
 
 const AXIOS_CONFIG: AxiosRequestConfig = {
   timeout: 3000,

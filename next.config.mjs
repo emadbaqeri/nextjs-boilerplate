@@ -1,14 +1,16 @@
-import createJiti from "jiti";
-import nextPWA from "next-pwa";
 import { fileURLToPath } from "node:url";
 import bundleAnalyzer from "@next/bundle-analyzer";
+import createJiti from "jiti";
+import nextPWA from "next-pwa";
 const jiti = createJiti(fileURLToPath(import.meta.url));
 
 /** Check to see all the env variables present before building */
 jiti("./config/env");
 
 const nextConfig = {
-  compiler: { removeConsole: true },
+  experimental: {
+    optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
+  },
 };
 
 const nextConfigWithBundleAnalyzer = bundleAnalyzer({
